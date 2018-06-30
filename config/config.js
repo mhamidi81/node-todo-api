@@ -3,9 +3,11 @@ const config = {
         port: 3000
     },
     db: {
-        host: 'localhost',
-        port: 27017,
-        name: 'todoapp'
+        host: 'ds121371.mlab.com',
+        port: 21371,
+        name: 'dbtraining',
+        username: 'aiaexpert',
+        password: 'aiaexpert00'
     }
 };
 
