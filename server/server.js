@@ -17,6 +17,17 @@ app.post('/todos', (req, res) => {
     );
 });
 
+app.get('/todos', (req, res) => {
+    Todo.find().then(
+        (result) => {
+            res.send({result});
+        },
+        (err) => {
+            console.log(err);
+        }
+    )
+});
+
 app.listen(3000, () => console.log('Starting server on localhost:3000'));
 
 

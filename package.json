@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start-local": "cross-env NODE_ENV=local node ./server/server.js",
     "test": "mocha server/**/*.test.js",
     "test-watch": "nodemon --exec npm test"
   },
@@ -17,6 +18,7 @@
     "mongoose": "^5.1.7"
   },
   "devDependencies": {
+    "cross-env": "^5.2.0",
     "expect": "^23.2.0",
     "mocha": "^5.2.0",
     "nodemon": "^1.17.5",
