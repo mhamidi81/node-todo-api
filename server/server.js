@@ -26,7 +26,7 @@ app.get('/todos', (req, res) => {
 });
 
 app.get('/todos/:id', (req, res) => {
-    const id = req.params.id;
+    const id = req.params.id;   
     if(!ObjectID.isValid(id)) {
         console.log(`ID=${id} is not valid.`);
         return res.status(404).send({message: `ID=${id} is not valid.`});
@@ -34,13 +34,13 @@ app.get('/todos/:id', (req, res) => {
     Todo.findById(id).then(
         todo => {
             if(!todo) {
-                return res.status(404).send({message: `No todo found with id=${id} `});
+                return res.status(404).send({message: `No todo found with id=${id}`});
             } else {
                 return res.status(200).send(todo);
             }
         },
-        err  => { 
-            return console.log('errrrooor', err.message);
+        err  => {
+            return res.status(400).send({message: err.message});
         } 
     );
 });
