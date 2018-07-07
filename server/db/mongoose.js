@@ -18,5 +18,5 @@ mongoose.Promise = global.Promise;
 mongoose.connect(dbUrl)
   .then(
     (success) => console.log('connection done..', dbUrl),
-    (error) => console.log('connection err..', error)
+    (error) => console.log('connection err..', dbUrl, error)
   );

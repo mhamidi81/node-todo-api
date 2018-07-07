@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-local": "cross-env NODE_ENV=local node ./server/server.js",
-    "start-atlas": "cross-env NODE_ENV=atlas node ./server/server.js",
-    "start-mlab": "cross-env NODE_ENV=mlab node ./server/server.js",
+    "start-local": "cross-env NODE_ENV=local nodemon ./server/server.js",
+    "start-atlas": "cross-env NODE_ENV=atlas nodemon ./server/server.js",
+    "start-mlab": "cross-env NODE_ENV=mlab nodemon ./server/server.js",
     "test": "mocha server/**/*.test.js",
-    "test-watch": "nodemon --exec npm test"
+    "test-watch": "cross-env NODE_ENV=local nodemon --exec npm test"
   },
   "keywords": [],
   "author": "",
