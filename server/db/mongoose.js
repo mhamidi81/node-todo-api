@@ -2,7 +2,14 @@ const mongoose = require('mongoose');
 const config = require('../../config/config');
 
 const dbName = config.db.name;
-const dbUrl = `${config.db.protocol}://${config.db.username}:${config.db.password}@${config.db.host}:${config.db.port}/${dbName}`;
+
+let dbUrl = `${config.db.protocol}://${config.db.username}:${config.db.password}@${config.db.host}`;
+if(config.db.port) {
+  dbUrl += `:${config.db.port}/${dbName}`;
+} else {
+  dbUrl += `${dbName}`;
+}
+
 
 // mongodb atlas cluster
 // "mongodb+srv://aiaexpert:aiaexpert00@mongodb-atlas-training-zmpo1.mongodb.net/test?retryWrites=true"

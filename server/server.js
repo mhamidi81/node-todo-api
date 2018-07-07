@@ -19,12 +19,8 @@ app.post('/todos', (req, res) => {
 
 app.get('/todos', (req, res) => {
     Todo.find().then(
-        (result) => {
-            res.send({result});
-        },
-        (err) => {
-            console.log(err);
-        }
+        todos => res.send({todos}),
+        err => res.status(400).send(err)
     )
 });
 

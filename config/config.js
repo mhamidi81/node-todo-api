@@ -35,7 +35,7 @@ const atlas = {
     db: {
         protocol: 'mongodb+srv',
         host: 'mongodb-atlas-training-zmpo1.mongodb.net',
-        port: 27017,
+        port: null,
         name: 'dbtraining',
         username: 'aiaexpert',
         password: 'aiaexpert00'
