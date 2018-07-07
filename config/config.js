@@ -1,5 +1,5 @@
-const env = process.env.NODE_ENV; // 'local', 'atlas' or 'mlab'
-
+const env = process.env.NODE_ENV || 'local'; // 'local', 'atlas' or 'mlab'
+console.log(`exec env :: ${env}`);
 const local = {
     app: {
         port: 3000
