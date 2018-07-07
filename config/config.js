@@ -1,4 +1,4 @@
-const env = process.env.NODE_ENV || 'local'; // 'local', 'atlas' or 'mlab'
+const env = process.env.NODE_ENV || 'mlab'; // 'local', 'atlas' or 'mlab'
 console.log(`exec env :: ${env}`);
 const local = {
     app: {
