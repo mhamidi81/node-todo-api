@@ -100,3 +100,45 @@ describe('GET / todos/:id', () => {
             .end(done);
     });
 });
+
+describe('DELETE /todos/:id', () => {
+    it('It should remove a todo', (done) => {
+        request(app)
+            .delete(`/todos/${todos[0]._id.toHexString()}`)
+            .expect(200)
+            .expect(
+                res => {
+                    expect(res.body._id).toBe(todos[0]._id.toHexString());
+                }
+            )
+            .end(
+                (err, res) => {
+                    if(err) {
+                        return done(err);
+                    }
+                    
+                    Todo.findById(todos[0]._id.toHexString())
+                        .then(
+                            (todo) => {
+                                expect(todo).toEqual(null);
+                                done();
+                            }
+                        ).catch(err => done(err));
+                }
+            );
+    });
+
+    it('It should return 404 status if todo does not exists', (done) => {
+        request(app)
+            .delete(`/todos/6b40d23e86dd0c1688523443`)
+            .expect(404)
+            .end(done);
+    });
+
+    it('It should return 404 status if id is not valid', (done) => {
+        request(app)
+        .delete(`/todos/44b40d23e86dd0c1688523443`)
+        .expect(404)
+        .end(done);
+    });
+});
