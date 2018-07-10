@@ -14,6 +14,20 @@ const local = {
     }
 };
 
+const test = {
+    app: {
+        port: 3000
+    },
+    db: {
+        protocol: 'mongodb',
+        host: '127.0.0.1',
+        port: 27017,
+        name: 'dbtraining-test',
+        username: 'aiaexpert',
+        password: 'aiaexpert00'
+    }
+};
+
 const mlab = {
     app: {
         port: 3000
@@ -45,7 +59,8 @@ const atlas = {
 const config = {
     local,
     mlab,
-    atlas
+    atlas,
+    test
 };
 
 module.exports = config[env];
